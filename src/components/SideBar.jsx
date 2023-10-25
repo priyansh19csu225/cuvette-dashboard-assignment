@@ -7,7 +7,7 @@ const Container = styled.div`
 flex: 1 1;
 max-width: 250px;
 border-right: 1px solid #ebf0f5;
-height: 89vh;
+height: calc(100vh - 75px);
 `
 const Wrapper = styled.div`
     position: sticky;
