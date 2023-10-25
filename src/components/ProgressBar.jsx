@@ -13,7 +13,7 @@ const progressBarAnimation = (percentage) => keyframes`
 const ProgressBarWrapper = styled.div`
   width: 100%;
   background-color: ${(props) => props.backgroundColor};
-  height: 7px;
+  height: 12px;
  border-radius: 15px; 
 `;
 
