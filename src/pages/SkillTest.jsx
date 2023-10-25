@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import SideBar from "../components/SideBar";
-import SkillSection from "../components/SkillSection";
+import SyllabusWiseAnalysis from "../components/SyllabusWiseAnalysis";
+import { ChildContainer } from "../components/ChildrenWrapper";
+import HTMLCard from "../components/HTMLCard";
+import QuickStatistics from "../components/QuickStatistics";
 
 const Container = styled.div`
 width: 100%;
@@ -41,20 +44,23 @@ function SkillTest() {
 
     return (
         <Container>
-           <SideBar />
-           <PageContentContainer>
-            <PageContentWrapper>
-                <MiddleSection>
-                    <Title>
-                        Skill Test
-                    </Title>
-                    <SkillSection></SkillSection>
-                </MiddleSection>
-                <RightSection>
-                    abcd
-                </RightSection>
-            </PageContentWrapper>
-           </PageContentContainer>
+            <SideBar />
+            <PageContentContainer>
+                <PageContentWrapper>
+                    <MiddleSection>
+                        <Title>
+                            Skill Test
+                        </Title>
+                        <ChildContainer>
+                            <HTMLCard />
+                            <QuickStatistics />
+                        </ChildContainer>
+                    </MiddleSection>
+                    <RightSection>
+                        <SyllabusWiseAnalysis />
+                    </RightSection>
+                </PageContentWrapper>
+            </PageContentContainer>
         </Container>
 
     )
