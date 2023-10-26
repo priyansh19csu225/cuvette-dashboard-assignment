@@ -4,6 +4,8 @@ import SyllabusWiseAnalysis from "../components/SyllabusWiseAnalysis";
 import { ChildContainer } from "../components/ChildrenWrapper";
 import HTMLCard from "../components/HTMLCard";
 import QuickStatistics from "../components/QuickStatistics";
+import QuestionAnalysis from "../components/QuestionAnalysis";
+import ComparisonGraph from "../components/ComparisonGraph";
 
 const Container = styled.div`
 width: 100%;
@@ -30,8 +32,11 @@ flex: 3.3 1;
 padding-top: 30px;
 `
 const RightSection = styled.div`
-flex: 1.54 1;
+display: flex;
+    flex-direction: column;
+    flex: 1.54 1;
     padding-top: 30px;
+    gap: 30px;
   
 `
 
@@ -54,10 +59,12 @@ function SkillTest() {
                         <ChildContainer>
                             <HTMLCard />
                             <QuickStatistics />
+                            <ComparisonGraph score={15} avg={69} />
                         </ChildContainer>
                     </MiddleSection>
                     <RightSection>
                         <SyllabusWiseAnalysis />
+                        <QuestionAnalysis score={15}  />
                     </RightSection>
                 </PageContentWrapper>
             </PageContentContainer>
