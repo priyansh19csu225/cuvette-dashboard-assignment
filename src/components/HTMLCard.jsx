@@ -52,7 +52,9 @@ display: flex;
 
 `
 
-function HTMLCard() {
+function HTMLCard({openDialog}) {
+
+  
   return (
    
     <ChildrenWrapper>
@@ -66,7 +68,7 @@ function HTMLCard() {
                 </HTMLContent>
                 </ChildLeft>
                 <ChildRight>
-                <UpdateBtn>
+                <UpdateBtn onClick={openDialog}>
                     Update
                 </UpdateBtn>
                 </ChildRight>

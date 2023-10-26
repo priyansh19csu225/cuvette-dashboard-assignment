@@ -41,12 +41,12 @@ for (let i = 0; i <= 100; i++) {
 
 const ranges = [0, 20, 40, 60, 80, 100];
 
-const ComparisonGraph = ({ score, avg }) => {
+const ComparisonGraph = ({ percentile, avg }) => {
   let xMin = 0;
   let xMax = 0;
 
   for (let i = 0; i < ranges.length - 1; i++) {
-    if (score >= ranges[i] && score < ranges[i + 1]) {
+    if (percentile >= ranges[i] && percentile < ranges[i + 1]) {
       xMin = ranges[i];
       xMax = ranges[i + 1];
       break;
@@ -60,7 +60,7 @@ const ComparisonGraph = ({ score, avg }) => {
         label: 'Your Score',
         pointRadius: 6,
         pointBackgroundColor: '#438AF6',
-        data: [{ x: `${score}%`, y: dataPoints[score] }],
+        data: [{ x: `${percentile}%`, y: dataPoints[percentile] }],
       },
       {
         label: 'Average Score',
@@ -101,8 +101,8 @@ const ComparisonGraph = ({ score, avg }) => {
         annotations: {
           verticalLine: {
             type: 'line',
-            xMin: score,
-            xMax: score,
+            xMin: percentile,
+            xMax: percentile,
             borderColor: 'rgba(200,214,229,1)',
             borderWidth: 2,
             borderDash: [5, 5],
@@ -134,7 +134,7 @@ const ComparisonGraph = ({ score, avg }) => {
           },
           label: function (tooltipItem, data) {
           
-            if (tooltipItem.parsed.x === score && tooltipItem.datasetIndex === 2)
+            if (tooltipItem.parsed.x === percentile && tooltipItem.datasetIndex === 2)
               return 'Your Score';
             else if (tooltipItem.parsed.x === avg && tooltipItem.datasetIndex === 2)
               return 'Average Score';
@@ -190,9 +190,9 @@ margin: auto;
             <h3 style={{ color: "black", paddingBottom: 30 }}>Comparison Graph</h3>
             <ComparisonText>
               <b>
-                You scored {score}% percentile
+                You scored {percentile}% percentile
               </b>&nbsp;
-              {score < avg && (
+              {percentile < avg && (
                 `which is lower than the average percentile ${avg}% of all the engineers who took this assessment`
               )}
             </ComparisonText>

@@ -30,22 +30,26 @@ const StatisticValue = styled.h3`
   color: black;
 `;
 
-function QuickStatistics() {
+function QuickStatistics({rank,percentile,score}) {
+
+  const formattedRank = new Intl.NumberFormat('en-US').format(rank);
+  const formattedPercentile =  `${percentile || 0}%` ;
+  const formattedScore = score > 9 ? `${score}/15` : `0${score}/15`; 
   const data = [
     {
       image: trophyIcon,
       text: "YOUR RANK",
-      value: "12460",
+      value: formattedRank,
     },
     {
       image: clipboardIcon,
       text: "PERCENTILE",
-      value: "37%",
+      value: formattedPercentile,
     },
     {
       image: correctIcon,
       text: "CORRECT ANSWER",
-      value: "07/15",
+      value: formattedScore,
     },
   ];
 
