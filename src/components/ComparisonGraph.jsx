@@ -44,6 +44,7 @@ const ranges = [0, 20, 40, 60, 80, 100];
 const ComparisonGraph = ({ percentile, avg }) => {
   let xMin = 0;
   let xMax = 0;
+  let xPercent = parseInt(percentile);
 
   for (let i = 0; i < ranges.length - 1; i++) {
     if (percentile >= ranges[i] && percentile < ranges[i + 1]) {
@@ -101,8 +102,8 @@ const ComparisonGraph = ({ percentile, avg }) => {
         annotations: {
           verticalLine: {
             type: 'line',
-            xMin: percentile,
-            xMax: percentile,
+            xMin: xPercent,
+            xMax: xPercent,
             borderColor: 'rgba(200,214,229,1)',
             borderWidth: 2,
             borderDash: [5, 5],
@@ -134,7 +135,7 @@ const ComparisonGraph = ({ percentile, avg }) => {
           },
           label: function (tooltipItem, data) {
           
-            if (tooltipItem.parsed.x === percentile && tooltipItem.datasetIndex === 2)
+            if (tooltipItem.parsed.x === xPercent && tooltipItem.datasetIndex === 2)
               return 'Your Score';
             else if (tooltipItem.parsed.x === avg && tooltipItem.datasetIndex === 2)
               return 'Average Score';
